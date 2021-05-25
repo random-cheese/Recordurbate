@@ -1,4 +1,16 @@
 # Recordurbate
+
+## Important
+This is a fork of `oliverjrose99/Recordurbate`  
+
+## Differences(TODO)
+1. Docker Suppoert (working on it)
+	and then put the docker image on Docker Hub or somethere else public.
+2. Better file support 
+	you won't get a bunch of `.mp4.part` file, and when you try to change the name from `.mp4.part` to `.mp4` to make it playable, sometime it work sometime it doesn't. we need to make it work 100% of time.
+3. Bug fixed (run `python3 ./Recordurbate.py stop` would just hang there sometimes)
+
+
 The act of recording a Chaturbate live stream
 
 Youtube-dl was previously broken, please update your installs to >= 2019.11.22
@@ -89,3 +101,14 @@ Because the streams are intended to be watched live, there is little compression
 
 ### Termux support
 Recordurbate will work on termux but the python install location is different to normal Linux installs. You can either run the script as `python Recordurbate.py [command]` or change the shebang to `/data/data/com.termux/files/usr/bin/python3.7` and run the script as normal. I don't currently know how well YouTube-dl will work with changing between WiFi and 4G, but either way will use a lot of data and possibly battery. Please open an issue if you find any issues or have anything to add. 
+
+# Commit as difference user
+```
+git -c user.name='random-cheese' -c user.email=temp.throwaway365@gmail.com commit -m "commit message"
+
+git log
+
+sudo chmod 600 /Users/remote_edit/.ssh/random-cheese-github.pub
+
+GIT_SSH_COMMAND='ssh -i $HOME/.ssh/random-cheese-github -o IdentitiesOnly=yes -F /dev/null' git push origin
+```
