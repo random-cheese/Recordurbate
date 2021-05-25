@@ -73,11 +73,9 @@ This file is used directly by Recordurbate and contains all the configuration op
 ### Youtube-dl.config
 This file is used to set all of the Youtube-dl config options and is passed using the `--config-location` parameter. As mentioned, the system and user wide configs still apply. Options such as quality, export options and more can be [found on the Youtube-dl Github.](https://github.com/ytdl-org/youtube-dl)
 
-# Commit as difference user
+# Commit as difference user (random-cheese)
 ```
-git log
-
-sudo chmod 600 /Users/remote_edit/.ssh/random-cheese-github.pub
+sudo chmod 600 $HOME/.ssh/random-cheese-github.pub
 
 git add -A
 git -c user.name='random-cheese' -c user.email=temp.throwaway365@gmail.com commit -m "commit message"
