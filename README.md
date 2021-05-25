@@ -1,31 +1,22 @@
 # Recordurbate
 
 ## Important
-This is a fork of `oliverjrose99/Recordurbate`  
+This is fork of `oliverjrose99/Recordurbate`  
 
 ## Differences(TODO)
-1. Docker Suppoert (working on it)
+1. Docker Suppoert (working on it)     
 	and then put the docker image on Docker Hub or somethere else public.
-2. Better file support 
-	you won't get a bunch of `.mp4.part` file, and when you try to change the name from `.mp4.part` to `.mp4` to make it playable, sometime it work sometime it doesn't. we need to make it work 100% of time.
+2. Better file support       
+	you won't get a bunch of `.mp4.part` file, and when you try to change the name from `.mp4.part` to `.mp4` to make it playable, sometime it work sometime it doesn't. we need to make it work 100% of time.      
 3. Bug fixed (run `python3 ./Recordurbate.py stop` would just hang there sometimes)
 
 
-The act of recording a Chaturbate live stream
-
-Youtube-dl was previously broken, please update your installs to >= 2019.11.22
 ## Requirements
 * Linux
 * Python 3+ (requests)
 * Youtube-dl
 * FFmpeg
 ## Installation
-```commandline
-wget https://github.com/oliverjrose99/Recordurbate/releases/download/2.0.4/recordurbate.tar
-tar -xf recordurbate.tar
-cd recordurbate
-chmod +x Recordurbate.py
-```
 The default config files will work out of the box with youtube-dl and FFmpeg installed. Streams will be saved to the folder videos/\<name>/\<name> \<date> \<hour>_\<min>.mp4. This can be changed by editing the youtube-dl.config file, see the configuration section for more. 
 ## Usage
 
@@ -82,33 +73,13 @@ This file is used directly by Recordurbate and contains all the configuration op
 ### Youtube-dl.config
 This file is used to set all of the Youtube-dl config options and is passed using the `--config-location` parameter. As mentioned, the system and user wide configs still apply. Options such as quality, export options and more can be [found on the Youtube-dl Github.](https://github.com/ytdl-org/youtube-dl)
 
-## TODO and future features
-* Integration with Chaturbate e.g. import from following, record paid for shows, etc
-* Better logging and config options
-* Support for other sites
-* Support for windows (OS.fork() alt)
-
-## Notes
-
-### Recordings lag and freeze
-A couple users have reported that recordings may lag and freeze which was due to out of date youtube-dl and ffmpeg versions. If you experience this, please ensure you are using the latest stable versions and that your internet, storage and CPU are not bottlenecks causing issues.
-
-### No files / Not running
-Some users found that no files were being made which was due to either software not being installed/configured or incorrect permissions. It's also possible that AppArmor is blocking the script which can be checked by looking at the syslog. Please check these before making an issue. Youtube-dl needs to be >= version 2019.11.22. It can be updated by running `pip3 install -U youtube-dl` and the version can be checked with the command `youtube-dl --version`.
-
-### Large Files and bandwidth usage
-Because the streams are intended to be watched live, there is little compression on the video. This can cause very large files and heavy internet usage as the max settings for some streamers are 4k/60fps and youtube-dl defaults to best available options. Internet usage can be reduced by using a lower quality and file size can be further reduced by compressing the file (will causes heavy CPU usage). All this can be done with youtube-dl config options. 
-
-### Termux support
-Recordurbate will work on termux but the python install location is different to normal Linux installs. You can either run the script as `python Recordurbate.py [command]` or change the shebang to `/data/data/com.termux/files/usr/bin/python3.7` and run the script as normal. I don't currently know how well YouTube-dl will work with changing between WiFi and 4G, but either way will use a lot of data and possibly battery. Please open an issue if you find any issues or have anything to add. 
-
 # Commit as difference user
 ```
-git -c user.name='random-cheese' -c user.email=temp.throwaway365@gmail.com commit -m "commit message"
-
 git log
 
 sudo chmod 600 /Users/remote_edit/.ssh/random-cheese-github.pub
 
+git add -A
+git -c user.name='random-cheese' -c user.email=temp.throwaway365@gmail.com commit -m "commit message"
 GIT_SSH_COMMAND='ssh -i $HOME/.ssh/random-cheese-github -o IdentitiesOnly=yes -F /dev/null' git push origin
 ```
