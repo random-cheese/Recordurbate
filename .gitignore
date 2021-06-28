@@ -106,3 +106,5 @@ releases/*/*
 
 *.mp4
 *.mp4.part
+
+.DS_Store
